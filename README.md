@@ -29,7 +29,7 @@
 
 1. [Tarea 1 "Actividad 1, Practica 1"](link-a-la-tarea-1)
 2. [Tarea 2 "Tipos de Inteligencia."](link-a-la-tarea-2)
-3. [Tarea 3 "Introspección pt.1 "](link-a-la-tarea-3)
+3. [Tarea 3 "Introspección pt.1 "](Tareas/Ensayos/Tarea3_Ajedrez.md)
 4. [Tarea 4 "Introspección pt.2 "](link-a-la-tarea-3)
 5. [Tarea 5 "Introspección pt.3 "](link-a-la-tarea-3)
 6. [Tarea 6 "El proceso de razonamiento según la lógica"](link-a-la-tarea-3)
