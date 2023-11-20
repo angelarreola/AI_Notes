@@ -30,7 +30,7 @@
 - 🟡 [Tarea 1 "Actividad 1, Practica 1 - IAEnfoqueModerno - Ensayo"](Tareas/Ensayos/1.1_LibroIAEnfoqueModerno_Ensayo.md)
     - 🟡 [Tarea 1 "Actividad 1, Practica 2 - Discovery IBM Ensayo"](Tareas/Ensayos/1.2_DiscoveryIBM_Ensayo.md)
 
-- 🟡 [Tarea 2 "Tipos de Inteligencia."](link-a-la-tarea-2)
+- 🟡 [Tarea 2 "Tipos de Inteligencia."](Tareas/Ensayos/2._TeoríaInteligenciasMultiples_Ensayo.md)
 
 - 🟡 [Tarea 3 "Introspección pt.1 "](Tareas/Ensayos/Tarea3_Ajedrez.md)
 
