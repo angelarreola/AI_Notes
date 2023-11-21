@@ -36,7 +36,7 @@
 
 - 🟡 [Tarea 4 "Introspección pt.2 "](Tareas/Tarea_4_Islas.ipynb)
 
-- 🟡 [Tarea 5 "Introspección pt.3 "](link-a-la-tarea-3)
+- 🟡 [Tarea 5 "Introspección pt.3 "](Tareas/Tarea5_IslasRojas.ipynb)
 
 - 🟡 [Tarea 6 "El proceso de razonamiento según la lógica"](link-a-la-tarea-3)
 
