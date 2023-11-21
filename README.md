@@ -34,7 +34,7 @@
 
 - 🟡 [Tarea 3 "Introspección pt.1 "](Tareas/Ensayos/Tarea3_Ajedrez.md)
 
-- 🟡 [Tarea 4 "Introspección pt.2 "](link-a-la-tarea-3)
+- 🟡 [Tarea 4 "Introspección pt.2 "](Tareas/Tarea_4_Islas.ipynb)
 
 - 🟡 [Tarea 5 "Introspección pt.3 "](link-a-la-tarea-3)
 
