@@ -42,7 +42,7 @@
 
 - 🟡 [Tarea 7 "El papel de la heurística"](link-a-la-tarea-3)
 
-- 🟡 [Tarea 8 "Reglas y Búsquedas : Espacio de Estados"](link-a-la-tarea-3)
+- 🟡 [Tarea 8 "Reglas y Búsquedas : Espacio de Estados"](Ejercicios%20en%20Clase/Tarea_8_ReglasyBusquedas.md)
 
 - 🟡 [Tarea 9 "Generación de Dataset"](link-a-la-tarea-3)
 
@@ -51,6 +51,9 @@
 ---
 ### <span style="color:Palevioletred">✍🏽 Notas / Ejercicios en clase | Relevantes</span> 
 
-1. [Apuntes sobre "OpenCV"](link-a-la-tarea-1)
-2. [Ejercicio de "Graficacion 2D/3D de los datos dados por el juego en Phaser.js"](link-a-la-tarea-2)
+1. [Apuntes sobre "OpenCV"](Apuntes%20de%20Clase/AI_Exercise_OpenCV.ipynb)
+1. [Apuntes sobre "Uso de Haarcascades"](Apuntes%20de%20Clase/AI_Haar_Cascade.ipynb)
+1. [Apuntes sobre "Similitud Coseno" y Ejercicio "Candidatos Presidenciales"](Apuntes%20de%20Clase/Similitud%20Coseno.ipynb)
+1. [Apuntes "Primer vistazo Phaser.js"](Apuntes%20de%20Clase/phaser/phaser/demo1.js)
+1. [Ejercicio de "Graficacion 2D/3D de los datos dados por el juego en Phaser.js"](Ejercicios%20en%20Clase/GraficacionPhaser/)
 
