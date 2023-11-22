@@ -22,7 +22,7 @@
 
 **- 👁️🌼 [Proyecto 1 - "CNN Flowers"](link-al-proyecto-1)**
 
-**- 🔎😷[Proyecto 2 - "Dataset de Caras con Cubrebocas"](link-al-proyecto-2)**
+**- 🔎😷 [Proyecto 2 - "Dataset de Caras con Cubrebocas"](link-al-proyecto-2)**
 
 **- 🕹️🎮 [Proyecto 3 - "Juego Phaser.js Modificado"](link-al-proyecto-3)**
 
@@ -41,7 +41,7 @@
 
 - 🟩 [Tarea 6 "El proceso de razonamiento según la lógica"](Tareas/Tarea_6_Josephus.ipynb)
 
-- 🟩 [Tarea 7 "El papel de la heurística"](link-a-la-tarea-3)
+- 🟩 [Tarea 7 "El papel de la heurística"](Tareas/Tarea_7_Heuristica.ipynb)
 
 - 🟩 [Tarea 8 "Reglas y Búsquedas : Espacio de Estados"](Ejercicios%20en%20Clase/Tarea_8_ReglasyBusquedas.md)
 
