@@ -38,7 +38,7 @@
 
 - 🟡 [Tarea 5 "Introspección pt.3 "](Tareas/Tarea5_IslasRojas.ipynb)
 
-- 🟡 [Tarea 6 "El proceso de razonamiento según la lógica"](link-a-la-tarea-3)
+- 🟡 [Tarea 6 "El proceso de razonamiento según la lógica"](Tareas/Tarea_6_Josephus.ipynb)
 
 - 🟡 [Tarea 7 "El papel de la heurística"](link-a-la-tarea-3)
 
