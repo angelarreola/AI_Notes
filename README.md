@@ -20,31 +20,32 @@
 
 ## <span style="color:orange">🤖 Proyectos</span> 
 
-- 🟢 [Proyecto 1](link-al-proyecto-1)
-- 🟢 [Proyecto 2](link-al-proyecto-2)
-- 🟢 [Proyecto 3](link-al-proyecto-3)
-- 🟢 [Proyecto 4](link-al-proyecto-4)
+**- 👁️🌼 [Proyecto 1 - "CNN Flowers"](link-al-proyecto-1)**
+
+**- 🔎😷[Proyecto 2 - "Dataset de Caras con Cubrebocas"](link-al-proyecto-2)**
+
+**- 🕹️🎮 [Proyecto 3 - "Juego Phaser.js Modificado"](link-al-proyecto-3)**
 
 ## <span style="color:orange">💻 Tareas</span> 
 
-- 🟡 [Tarea 1 "Actividad 1, Practica 1 - IAEnfoqueModerno - Ensayo"](Tareas/Ensayos/1.1_LibroIAEnfoqueModerno_Ensayo.md)
-    - 🟡 [Tarea 1 "Actividad 1, Practica 2 - Discovery IBM Ensayo"](Tareas/Ensayos/1.2_DiscoveryIBM_Ensayo.md)
+- 🟩 [Tarea 1 "Actividad 1, Practica 1 - IAEnfoqueModerno - Ensayo"](Tareas/Ensayos/1.1_LibroIAEnfoqueModerno_Ensayo.md)
+    - 🟩 [Tarea 1 "Actividad 1, Practica 2 - Discovery IBM Ensayo"](Tareas/Ensayos/1.2_DiscoveryIBM_Ensayo.md)
 
-- 🟡 [Tarea 2 "Tipos de Inteligencia."](Tareas/Ensayos/2._TeoríaInteligenciasMultiples_Ensayo.md)
+- 🟩 [Tarea 2 "Tipos de Inteligencia."](Tareas/Ensayos/2._TeoríaInteligenciasMultiples_Ensayo.md)
 
-- 🟡 [Tarea 3 "Introspección pt.1 "](Tareas/Ensayos/Tarea3_Ajedrez.md)
+- 🟩 [Tarea 3 "Introspección pt.1 "](Tareas/Ensayos/Tarea3_Ajedrez.md)
 
-- 🟡 [Tarea 4 "Introspección pt.2 "](Tareas/Tarea_4_Islas.ipynb)
+- 🟩 [Tarea 4 "Introspección pt.2 "](Tareas/Tarea_4_Islas.ipynb)
 
-- 🟡 [Tarea 5 "Introspección pt.3 "](Tareas/Tarea5_IslasRojas.ipynb)
+- 🟩 [Tarea 5 "Introspección pt.3 "](Tareas/Tarea5_IslasRojas.ipynb)
 
-- 🟡 [Tarea 6 "El proceso de razonamiento según la lógica"](Tareas/Tarea_6_Josephus.ipynb)
+- 🟩 [Tarea 6 "El proceso de razonamiento según la lógica"](Tareas/Tarea_6_Josephus.ipynb)
 
-- 🟡 [Tarea 7 "El papel de la heurística"](link-a-la-tarea-3)
+- 🟩 [Tarea 7 "El papel de la heurística"](link-a-la-tarea-3)
 
-- 🟡 [Tarea 8 "Reglas y Búsquedas : Espacio de Estados"](Ejercicios%20en%20Clase/Tarea_8_ReglasyBusquedas.md)
+- 🟩 [Tarea 8 "Reglas y Búsquedas : Espacio de Estados"](Ejercicios%20en%20Clase/Tarea_8_ReglasyBusquedas.md)
 
-- 🟡 [Tarea 9 "Generación de Dataset"](link-a-la-tarea-3)
+- 🟩 [Tarea 9 "Generación de Dataset"](link-a-la-tarea-3)
 
 ---
 ---
