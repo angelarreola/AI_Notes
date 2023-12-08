@@ -21,11 +21,11 @@
 
 ## <span style="color:orange">🤖 Proyectos</span> 
 
-**- 👁️🌼 [Proyecto 1 - "CNN Flowers"](link-al-proyecto-1)**
+**- 👁️🌼 [Proyecto 1 - "CNN Flowers"](Proyectos/ProyectoCNNFlowers/)**
 
-**- 🔎😷 [Proyecto 2 - "Dataset de Caras con Cubrebocas"](link-al-proyecto-2)**
+**- 🔎😷 [Proyecto 2 - "Dataset de Caras con Cubrebocas"](Proyectos/ProyectoDatasetCarasCubre/)**
 
-**- 🕹️🎮 [Proyecto 3 - "Juego Phaser.js Modificado"](link-al-proyecto-3)**
+**- 🕹️🎮 [Proyecto 3 - "Juego Phaser.js Modificado"](Proyectos/PhaserGameAI/)**
 
 ## <span style="color:orange">💻 Tareas</span> 
 
