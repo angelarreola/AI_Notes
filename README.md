@@ -10,9 +10,10 @@
 
 ## <span style="color:Limegreen">🥪 Tecnologías Utilizadas</span> 
 <p align="center">
-<img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" width="50" height="60" style="margin-right: 20"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1915px-Tensorflow_logo.svg.png" width="50" height="60" style="margin-right: 20"/>
 <img src="https://icon.icepanel.io/Technology/svg/scikit-learn.svg" width="" height="70" style="margin-right: 20"/>
 <img src="https://seeklogo.com/images/M/matplotlib-logo-AEB3DC9BB4-seeklogo.com.png" width="" height="35" style="margin-right: 20"/>
+<img src="https://github.com/opencv/opencv/wiki/logo/OpenCV_logo_no_text.png" width="" height="60" style="margin-right: 20"/>
 <img src="https://pandas.pydata.org/static/img/pandas_white.svg" width="" height="60" style="margin-right: 20"/>
 <img src="https://numpy.org/images/logo.svg" width="" height="60" style="margin-right: 20"/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Phaser_Logo.png" width="" height="70" style="margin-right: 20"/>
@@ -45,7 +46,9 @@
 
 - 🟩 [Tarea 8 "Reglas y Búsquedas : Espacio de Estados"](Ejercicios%20en%20Clase/Tarea_8_ReglasyBusquedas.md)
 
-- 🟩 [Tarea 9 "Generación de Dataset"](link-a-la-tarea-3)
+- 🟩 [Tarea 9 "Generación de Dataset"](Tareas/Tarea_9_DatasetRostros.ipynb)
+
+- 🟩 [Tarea 10 "HugenFace o algo asi"](Tareas/Tarea_9_DatasetRostros.ipynb)
 
 ---
 ---

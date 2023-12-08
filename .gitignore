@@ -1,0 +1,71 @@
+# Ignorar directorios de node_modules en cualquier lugar
+node_modules/
+
+# Ignorar directorios de checkpoints de Jupyter
+.ipynb_checkpoints/
+
+# Ignorar archivos de ambiente virtual de Python y cachés
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar archivos de configuración de IDE (como VSCode, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Ignorar archivos de datasets que puedan ser grandes (opcional)
+*.csv
+*.xls
+*.xlsx
+*.json
+*.xml
+
+# Ignorar archivos de modelos de machine learning
+*.h5
+*.keras
+*.pickle
+*.pkl
+*.ckpt
+*.pb
+*.tflite
+*.lite
+*.tensorflow
+*.pt
+*.pth
+*.onnx
+
+# Ignorar archivos de imagen en cualquier lugar
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.ico
+*.svg
+*.webp
+
+# Ignorar archivos de registro y carpetas temporales
+*.log
+*.tmp
+temp/
+
+# Ignorar archivos específicos de sistemas operativos
+.DS_Store    # Archivos del sistema macOS
+Thumbs.db    # Miniaturas de Windows
+Desktop.ini  # Configuraciones de carpetas de Windows
+
+# Archivos de configuración específicos de proyectos Node.js
+package-lock.json
+yarn.lock
+
+# Ignorar archivos de Docker (si aplica)
+docker-compose.yml
+Dockerfile
+
+# Si usas archivos de entorno (.env), también puedes ignorarlos
+.env
+
+# Agregar aquí cualquier otro archivo o carpeta específica que desees ignorar
