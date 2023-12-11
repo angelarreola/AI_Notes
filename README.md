@@ -48,8 +48,6 @@
 
 - 🟩 [Tarea 9 "Generación de Dataset"](Tareas/Tarea_9_DatasetRostros.ipynb)
 
-- 🟩 [Tarea 10 "HugenFace o algo asi"](Tareas/Tarea_9_DatasetRostros.ipynb)
-
 ---
 ---
 ---
