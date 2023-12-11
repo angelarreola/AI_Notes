@@ -3,10 +3,11 @@ const config = {
   width: 800,
   height: 400,
   gravity: 800,
-  desiredFps: 30,
+  desiredFps: 60,
 };
 
 let jugador,
+  jugadorD = true,
   fondo,
   bala,
   balaVertical,
@@ -18,6 +19,7 @@ let velocidadBala = 0,
   desplazamientoBala = 0;
 let velocidadBalaV = 0,
   desplazamientoBalaV = 0;
+  posicionXBalaV = 0;
 let estadoEnAire;
 let estadoMovDerecha;
 let nnNetwork,
@@ -26,10 +28,10 @@ let nnNetwork,
   datosEntrenamiento = [];
 let modoAuto = false,
   eCompleto = false;
-const UMBRAL = 0.5;
+const UMBRAL_MEDIO = 0.3;
+const UMBRAL_BAJO = 0.15;
 const DISTANCIA_PARED_DERECHA = 400;
 let inversionMov = false;
-let countImpacts = 0;
 
 const juego = new Phaser.Game(config.width, config.height, Phaser.CANVAS, "", {
   preload: preload,
@@ -77,7 +79,7 @@ function crearObjetos() {
   nave = juego.add.sprite(config.width - 100, config.height - 70, "nave");
   bala = juego.add.sprite(config.width - 100, config.height, "bala");
   balaVertical = juego.add.sprite(config.width - 100, config.height, "bala");
-  jugador = juego.add.sprite(50, config.height, "mono");
+  jugador = juego.add.sprite(69.9999, config.height, "mono");
 
   juego.physics.enable([jugador, bala, balaVertical]);
 
@@ -106,34 +108,59 @@ function configurarTeclas() {
   teclaDerecha = juego.input.keyboard.addKey(Phaser.Keyboard.D);
 }
 
-//*----------------------------------------------------------------xa--------------------
+//*------------------------------------------------------------------------------------
 function iniciarRedNeural() {
-  nnNetwork = new synaptic.Architect.Perceptron(4, 6, 6, 2); //
+  // nnNetwork = new synaptic.Architect.Perceptron(5, 16, 2); //? Funciona ok
+  // nnNetwork = new synaptic.Architect.Perceptron(5, 12, 2); //? Funciona con las entradas no separadas.
+  // nnNetwork = new synaptic.Architect.Perceptron(5, 8, 8, 2); //? No
+  nnNetwork = new synaptic.Architect.Perceptron(5, 6, 6, 2); //? Funciona ?
 
   nnEntrenamiento = new synaptic.Trainer(nnNetwork);
 }
 
 function recopilarDatosEntrenamiento() {
   if (!modoAuto) {
-    if (balaD || balaVerticalD) {
+    if (balaD) {
       datosEntrenamiento.push({
-        input: [
-          desplazamientoBala,
-          velocidadBala,
-          desplazamientoBalaV,
-          velocidadBalaV,
-        ],
-        output: [estadoEnAire, estadoMovDerecha],
+        input: [desplazamientoBala, velocidadBala, 0, 0, 0],
+        output: [
+          estadoEnAire,
+          estadoMovDerecha,
+        ], //+ Salidas para saltar o no saltar
       });
     }
-    console.log(
-      desplazamientoBala,
-      velocidadBala,
-      desplazamientoBalaV,
-      velocidadBalaV,
-      estadoEnAire,
-      estadoMovDerecha,
-    );
+
+    if (balaVerticalD) {
+      console.log('aprendiendo');
+      datosEntrenamiento.push({
+        input: [0, 0, desplazamientoBalaV, velocidadBalaV, posicionXBalaV],
+        output: [
+          estadoEnAire,
+          estadoMovDerecha,
+        ], //+ Salidas para moverse a los lados dependiendo de todos los valores de la Bala Vertical
+      });
+    }
+    // if (balaD || balaVerticalD) {
+    //   datosEntrenamiento.push({
+    //     input: [
+    //       desplazamientoBala,
+    //       velocidadBala,
+    //       desplazamientoBalaV,
+    //       velocidadBalaV,
+    //       posicionXBalaV
+    //     ],
+    //     output: [estadoEnAire, estadoMovDerecha],
+    //   });
+    // }
+    console.log(`
+      D-BalaH: ${desplazamientoBala},
+      V-BalaH: ${velocidadBala},
+      D-BalaV: ${desplazamientoBalaV},
+      V-BalaV: ${velocidadBalaV},
+      X-BalaV: ${posicionXBalaV},
+      Aire: ${estadoEnAire},
+      Derecha: ${estadoMovDerecha}
+    `);
     console.log(datosEntrenamiento.length);
   }
 }
@@ -141,7 +168,7 @@ function recopilarDatosEntrenamiento() {
 function enRedNeural() {
   const opcionesEntrenamiento = {
     rate: 0.0003,
-    iterations: 8000,
+    iterations: 6000,
     shuffle: true,
     schedule: {
       every: 1000, // Ejecuta esta función cada 1000 iteraciones
@@ -151,8 +178,6 @@ function enRedNeural() {
           data.error,
           "Iteraciones: ",
           data.iterations,
-          "Tasa: ",
-          data.rate
         );
       },
     },
@@ -200,61 +225,81 @@ function calcularDesplazamientoBala() {
     jugador.position.y - balaVertical.position.y - 32
   );
 
-  console.log(
-    `Jugador: ${jugador.position.x}, balaH: ${bala.position.x}, difH: ${
-      jugador.position.x - bala.position.x + 50
-    }`
-  );
-  console.log(
-    `Jugador: ${jugador.position.y}, balaV: ${balaVertical.position.y}, difV: ${
-      jugador.position.y - balaVertical.position.y - 32
-    }`
-  );
+  // console.log(
+  //   `Jugador: ${jugador.position.x}, balaH: ${bala.position.x}, difH: ${
+  //     jugador.position.x - bala.position.x + 50
+  //   }`
+  // );
+  // console.log(
+  //   `Jugador: ${jugador.position.y}, balaV: ${balaVertical.position.y}, difV: ${
+  //     jugador.position.y - balaVertical.position.y - 32
+  //   }`
+  // );
 }
 
-function gestionarMovimientoJugador() {
-  if (modoAuto) {
+async function gestionarMovimientoJugador() {
+  if (modoAuto) { //? Modo Automatico
     let nnSalida = datosDeEntrenamiento([
       desplazamientoBala,
       velocidadBala,
       desplazamientoBalaV,
       velocidadBalaV,
+      posicionXBalaV
     ]);
 
-    // Aquí estamos interpretando las salidas de la red neuronal para mover al jugador
-    if (nnSalida[0] > UMBRAL && jugador.body.onFloor()) {
-      // Si la red decide "saltar"
+    //***** Aquí estamos interpretando las salidas de la red neuronal para mover al jugador ****/
+    if (nnSalida[0] >= UMBRAL_MEDIO && jugador.body.onFloor()) { //+ Si la red decide "saltar"
       saltar();
     }
-
-    if (nnSalida[1] > UMBRAL &&  0 > jugador.position.x < DISTANCIA_PARED_DERECHA) {
-      // Si la red decide "moverse a la derecha"
-      moverseDerecha();
-    } else {
-        // Si la red decide "moverse a la derecha"
-        moverseIzquierda();
+    if (jugadorD) {
+      if (nnSalida[1] > UMBRAL_MEDIO) { //+ Si la red decide "moverse a la derecha"
+        moverEjeXJugador(moverseDerecha, 200, 'r');
+      } else if (nnSalida[1] > 1 && nnSalida[1] <= UMBRAL_BAJO /*nnSalida[1] <= UMBRAL_BAJO*/) { //+ Si la red decide "moverse a la izquierda"
+        moverEjeXJugador(moverseIzquierda, 200, 'l');
+      } else {
+        jugador.body.velocity.x = 0; //+ Si la red NO tiene un valor claro nos quedamos "neutros"
+      }
     }
-  } else {
-    // Movimiento manual del jugador
-    if (teclaIzquierda.isDown) {
-      moverseIzquierda();
-      setTimeout(() => {
-        console.log('moviendome al inicio')
-      moverseDerecha();
-      }, 300)
-    } else if (teclaDerecha.isDown) {
-      moverseDerecha();
-      setTimeout(() => {
-        console.log('moviendome al inicio')
-      moverseIzquierda();
-      }, 300)
-    } else {
-      jugador.body.velocity.x = 0; // Quieto
-    }
-    if (salto.isDown && jugador.body.onFloor()) {
+    //*****************************************************************************************/
+  } else { //? Movimiento manual del jugador
+    if (salto.isDown && jugador.body.onFloor()) {//+ Accion Saltar
       saltar();
     }
+    if (jugadorD) {
+      if (teclaIzquierda.isDown) { //+ Accion Movimiento Izquierda
+        moverEjeXJugador(moverseIzquierda, 200, 'l');
+      } else if (teclaDerecha.isDown) { //+ Accion Movimiento Derecha
+        moverEjeXJugador(moverseDerecha, 200, 'r');
+      }
+    } 
+    // else {
+    //   console.log('block');
+    // }
   }
+}
+
+function moverEjeXJugador(funcionMove, duracion, direccion) {
+  if (typeof funcionMove !== 'function') {
+    console.error('funcionMove no es una función');
+  }
+  jugadorD = false;
+  let intervalo = setInterval(() => {
+      funcionMove()
+  }, 0);
+  // Detener después de la duración especificada
+  setTimeout(() => {
+      clearInterval(intervalo);
+      if (direccion === 'r') {
+        moverEjeXJugador(moverseIzquierda, duracion, 'salir')
+      } else if (direccion === 'l') {
+        moverEjeXJugador(moverseDerecha, duracion, 'salir')
+      } else if (direccion === 'salir') {
+        moverEjeXJugador(moverseNeutro, duracion, '')
+      } else {
+        jugadorD = true;
+        jugador.position.x = 69.999;
+      }
+  }, duracion);
 }
 
 function saltar() {
@@ -262,11 +307,18 @@ function saltar() {
 }
 
 function moverseDerecha() {
-  jugador.body.velocity.x = 250;
+  // console.log('hola1');
+  jugador.body.velocity.x = 350;
 }
 
 function moverseIzquierda() {
-  jugador.body.velocity.x = -250;
+  // console.log('hola2');
+  jugador.body.velocity.x = -350;
+}
+
+function moverseNeutro() {
+  // console.log('hola3');
+  jugador.body.velocity.x = 0;
 }
 
 function gestionarDisparos() {
@@ -293,10 +345,11 @@ function disparo() {
 
 // Función para el disparo vertical
 function disparoVertical() {
-  velocidadBalaV = 1 * velocidadRandom(50, 100);
-  balaVertical.position.x = jugador.position.x; // Posicionar la bala encima del jugador
-  balaVertical.position.y = 0; // Iniciar desde la parte superior de la pantalla
+  velocidadBalaV = 1 * velocidadRandom(40, 90);
   balaVertical.body.velocity.y = velocidadBalaV; // Velocidad vertical aleatoria
+  balaVertical.position.x = jugador.position.x; // Posicionar la bala encima del jugador
+  posicionXBalaV = balaVertical.position.x; // Obtener la posicion en X de la Bala Vertical (Para el aprendizaje)
+  balaVertical.position.y = 0; // Iniciar desde la parte superior de la pantalla
   balaVerticalD = true;
 }
 
@@ -304,11 +357,7 @@ function resetVariables() {
   jugador.body.velocity.setTo(0, 0);
   bala.body.velocity.x = 0;
   bala.position.x = config.width - 100;
-  countImpacts++;
   balaD = false;
-  // if (countImpacts === 3) {
-  //   resetPosition();
-  // }
 }
 
 // Función para resetear las variables de la bala vertical
@@ -316,26 +365,18 @@ function resetVariablesBalaVertical() {
   balaVertical.body.velocity.y = 0;
   balaVertical.position.y = 0;
   balaVerticalD = false;
-  countImpacts++;
-  // if (countImpacts === 3) {
-  //   resetPosition();
-  // }
-}
-
-function resetPosition() {
-  jugador.position.x = 50;
-  countImpacts = 0;
 }
 
 function resetVariablesNuevoJuego() {
   jugador.body.velocity.setTo(0, 0);
-  jugador.position.x = 50;
+  jugador.position.x = 69.999;
 
-  bala.body.velocity.x = 0;
+  bala.body.velocity.setTo(0, 0);
   bala.position.x = config.width - 100;
   balaD = false;
+  jugadorD = true;
 
-  balaVertical.body.velocity.y = 0;
+  balaVertical.body.velocity.setTo(0, 0);
   balaVertical.position.y = 0;
   balaVerticalD = false;
   inversionMov = false;
@@ -401,8 +442,8 @@ function mPausa(event) {
       }
 
       // Quitar el menú y reanudar el juego
-      menu.destroy();
       resetVariablesNuevoJuego();
+      menu.destroy();
       juego.paused = false;
     }
   }
